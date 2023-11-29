@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Note Search</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1 style="margin-bottom: 40px;">Поиск по заголовку</h1>
+    <form action="{% url 'search_notes' %}" method="GET">
+      <div class="form-group"> 
+        <label for="searchTitle">Введите заголовок:</label>
+        <input type="text" class="form-control" id="searchTitle" name="title" placeholder="Поиск...">
+      </div>
+      <button type="submit" class="btn btn-primary">Составить отчет</button>
+    </form>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

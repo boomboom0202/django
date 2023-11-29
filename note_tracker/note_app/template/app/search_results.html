@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Search Results</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1 style="margin-bottom: 40px;">Результаты:</h1>
+
+    {% if search_term %}
+      <h3>Поиск: "{{ search_term }}"</h3>
+    {% endif %}
+
+    <ul class="list-group">
+      {% if notes %}
+        {% for note in notes %}
+          <li class="list-group-item" style="margin-bottom: 20px;">
+            <a href="{% url 'note_detail' note.id %}" style="text-decoration: none; color: black;">{{ note.title }}</a>
+          </li>
+        {% endfor %}
+      {% else %}
+        <li class="list-group-item">Не найдено записей</li>
+      {% endif %}
+    </ul>
+    <a href="{% url 'note_list' %}" class="btn btn-primary" style="text-decoration: none; color: white;">Вернуться на главную страницу</a>
+    <a href="{% url 'generate_report' %}?title={{ search_term }}" class="btn btn-primary" style="text-decoration: none; color: white;">Скачать отчет</a>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
